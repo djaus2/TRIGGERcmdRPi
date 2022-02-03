@@ -1,0 +1,11 @@
+[
+  {
+    "trigger": "Echo",
+    "command": "cast -device \"Family Room speaker\"    -text ",
+    "offCommand": "",
+    "ground": "foreground",
+    "voice": "echo",
+    "voiceReply": "",
+    "allowParams": "true"
+  }
+]
