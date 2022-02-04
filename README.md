@@ -54,6 +54,9 @@ It was said that you can't get the temperature etc from a RPi, from a .Net app t
     - As per DHT1Wire but using BME280 sensor
 - DNETCoreGPIO: Is .NET6.0 C# app
   - Repository on GitHub here: [djaus2/DNETCoreGPIO](https://github.com/djaus2/DNETCoreGPIO)
+    - Clone with ```git clone github.com/djaus2/DNETCoreGPI``` in a folder on RPi in command shell
+    - Build in folder with ```dotnet build *.csproj```
+    - Need to add path to built DNETCoreGPIO  in ```projectdirectory/bin/Net6```
   - Called with various parameters by TRIGGERcmd on RPi:
     - 11.12 Turn relay on/off 
     - 14: Get Temperature and Humidity from DHT22 1 Wire mode
