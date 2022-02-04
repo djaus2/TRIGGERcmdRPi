@@ -52,16 +52,16 @@ It was said that you can't get the temperature etc from a RPi, from a .Net app t
      - ```sudo apt-get install espeak```
   - Sensor_BME280.sh/speaklocal_BME280.sh
     - As per DHT1Wire but using BME280 sensor
-  - DNETCoreGPIO: Is .NET6.0 C# app
-    - Repository on GitHub here: [djaus2/DNETCoreGPIO](https://github.com/djaus2/DNETCoreGPIO)
-    - Called with various parameters by TRIGGERcmd on RPi:
-      - 11.12 Turn relay on/off 
-      - 14: Get Temperature and Humidity from DHT22 1 Wire mode
-      - 15: Get Temperature, Presssure and Humidity from BME280 _(Altitude also but is erroneous)_.
-      - 21: Motor Forward
-      - 22: Motor Reverse
-      - 23: Motor Enable
-      - 24: Motor Disable
+- DNETCoreGPIO: Is .NET6.0 C# app
+  - Repository on GitHub here: [djaus2/DNETCoreGPIO](https://github.com/djaus2/DNETCoreGPIO)
+  - Called with various parameters by TRIGGERcmd on RPi:
+    - 11.12 Turn relay on/off 
+    - 14: Get Temperature and Humidity from DHT22 1 Wire mode
+    - 15: Get Temperature, Presssure and Humidity from BME280 _(Altitude also but is erroneous)_.
+    - 21: Motor Forward
+    - 22: Motor Reverse
+    - 23: Motor Enable
+    - 24: Motor Disable
 - In repository /TRIGGERcmd folder
   - Note folder is .TRIGGERcmd on Pi
   - Place commands.json, the RPi trigger commands in ~/.TRIGGERcmd after TRIGGERcmd installation on RPi
