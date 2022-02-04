@@ -49,8 +49,8 @@ It was said that you can't get the temperature etc from a RPi, from a .Net app t
     - Place in ~ and chmod +
     - As per Sensor_DHT1Wire.sh but Text to Speech is used directly on RPi
     - Ref: [How To Make Your Raspberry Pi Speak](https://www.dexterindustries.com/howto/make-your-raspberry-pi-speak/#:~:text=Make%20sure%20your%20Raspberry%20Pi%20is%20powered%20up,to%20convert%20text%20to%20speech%20on%20the%20speakers.)
-     - ```sudo apt-get install espeak``
-  - Sensor_DME280.sh/speaklocal_BME280.sh
+     - ```sudo apt-get install espeak```
+  - Sensor_BME280.sh/speaklocal_BME280.sh
     - As per DHT1Wire but using BME280 sensor
     - DNETCoreGPIO is .NET6.0 C# app
       - Repository on GitHub here: [djaus2/DNETCoreGPIO](https://github.com/djaus2/DNETCoreGPIO)
