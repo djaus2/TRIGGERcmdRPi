@@ -10,21 +10,24 @@ file="/tmp/temperature.txt"
 targetpc='BIGMOMMA5'
 trigger='Echo'
 
-# var1='{"computer":"'
-# var2=$targetpc
-# var3='","trigger":"'
-# var4=$trigger
-# var5='","params":"'
-# var6='Please wait while the sensor is read'
-# var7='"}'
+var1='{"computer":"'
+var2=$targetpc
+var3='","trigger":"'
+var4=$trigger
+var5='","params":"'
+var6='Reading'
+var7='"}'
 
-# var=$var1$var2$var3$var4$var5$var6$var7
+var=$var1$var2$var3$var4$var5$var6$var7
 
 # echo $var
-# curl -X POST https://www.triggercmd.com/api/run/triggerSave \
-# -H 'authorization: Bearer <enter token here> \
-# -H 'content-type: application/json' \
-# -d "$var"
+ curl -X POST https://www.triggercmd.com/api/run/triggerSave \
+ -H 'authorization: Bearer <insert token>' \
+ -H 'content-type: application/json' \
+ -d "$var"
+
+# Need to wait for this to finish.
+ sleep 4
 
 DNETCoreGPIO 15
 
@@ -44,6 +47,6 @@ echo $var
 echo
 
 curl -X POST https://www.triggercmd.com/api/run/triggerSave \
--H 'authorization: Bearer <Insert token>' \
+-H 'authorization: Bearer <insert token>' \
 -H 'content-type: application/json' \
 -d "$var"

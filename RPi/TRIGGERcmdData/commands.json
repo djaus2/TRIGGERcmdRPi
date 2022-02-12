@@ -1,48 +1,56 @@
 [
   {
-    "trigger": "DNETCoreGPIO Blink-LED and Button",
+    "trigger": "echo",
+    "command": "echo",
+    "ground": "foreground",
+    "voice": "test",
+    "voiceReply": "",
+    "allowParams": "true"
+  },
+  {
+    "trigger": "DNETBlink",
     "command": "bash /home/pi/DNETCoreGPIO.sh 1",
     "ground": "foreground",
     "voice": "led",
     "allowParams": "false"
   },
   {
-    "trigger": "BME280",
+    "trigger": "DNETCBME280",
     "command": "bash /home/pi/Sensor_BME280.sh",
     "ground": "foreground",
     "voice": "temp",
     "allowParams": "false"
   },
   {
-    "trigger": "BME280 local",
+    "trigger": "DNETBME280local",
     "command": "bash /home/pi/speaklocal_BME280.sh",
     "ground": "foreground",
     "voice": "bosh",
     "allowParams": "false"
   },
   {
-    "trigger": "DNETCoreGPIO Get-Temp with DHTxx",
+    "trigger": "DNETDHTxx",
     "command": "bash /home/pi/DNETCoreGPIO.sh 3",
     "ground": "foreground",
     "voice": "dee",
     "allowParams": "false"
   },
   {
-    "trigger": "DNETCoreGPIO Get-Temp with DHT22-i-Wire",
+    "trigger": "DNETDHT221Wire",
     "command": "bash /home/pi/DNETCoreGPIO.sh 4",
     "ground": "foreground",
     "voice": "wire",
     "allowParams": "false"
   },
   {
-    "trigger": "DNETCoreGPIO LED PWM",
+    "trigger": "DNETlEDPWM",
     "command": "bash /home/pi/DNETCoreGPIO.sh 5",
     "ground": "foreground",
     "voice": "pwm",
     "allowParams": "false"
   },
   {
-    "trigger": "DNETCoreGPIO Get-Temp with DHT22-i-Wire Single Value",
+    "trigger": "DNETDHT221WireSingleVal",
     "command": "bash /home/pi/DNETCoreGPIO.sh 14",
     "ground": "foreground",
     "voice": "single",
@@ -55,22 +63,22 @@
     "voice": "sensor",
     "allowParams": "false"
   },
-{
-    "trigger": "Local Sensor",
+  {
+    "trigger": "LocalSensor",
     "command": "bash /home/pi/speaklocal_DHT1Wire.sh",
     "ground": "foreground",
     "voice": "local",
     "allowParams": "false"
   },
   {
-    "trigger": "Cast Temp",
+    "trigger": "CastTemp",
     "command": "cast -file /tmp/temperature.txt",
     "ground": "foreground",
     "voice": "cast",
     "allowParams": "false"
   },
   {
-    "trigger": "DNETCoreGPIO Motor Enable",
+    "trigger": "DNETMotorEnable",
     "command": "bash /home/pi/DNETCoreGPIO.sh 24",
     "offCommand": "bash /home/pi/DNETCoreGPIO.sh 25",
     "ground": "foreground",
@@ -78,7 +86,7 @@
     "allowParams": "true"
   },
   {
-    "trigger": "DNETCoreGPIO Relay",
+    "trigger": "DNETMotorDirection",
     "command": "bash /home/pi/DNETCoreGPIO.sh 21",
     "offCommand": "bash /home/pi/DNETCoreGPIO.sh 22",
     "ground": "foreground",
@@ -86,7 +94,7 @@
     "allowParams": "true"
   },
   {
-    "trigger": "DNETCoreGPIO Relay",
+    "trigger": "DNETRelay",
     "command": "bash /home/pi/DNETCoreGPIO.sh 11",
     "offCommand": "bash /home/pi/DNETCoreGPIO.sh 12",
     "ground": "foreground",
@@ -95,3 +103,4 @@
     "allowParams": "true"
   }
 ]
+  

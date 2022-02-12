@@ -84,21 +84,27 @@ It was said that you can't get the temperature etc from a RPi, from a .Net app t
     - **BME280 Local**: Calls speaklocal_DHT1Wire.sh
       - Gets called from Nest with _Hey Google, start bosh"_
       - As per temp but T2S is used to output directly to RPi Audio.
-    - **DNETCoreGPIO Motor Enable**: ```DNETCoreGPIO 21 and 22``` as above
+    - **DNETMotorEnable**: ```DNETCoreGPIO 21 and 22``` as above
       - Gets called from Nest with _Hey Google, Start Motor_
         - Means enable motor
       - And _Hey Google, Stop Motor_
         - Means disable motor
-    - **DNETCoreGPIO Motor Direction**: ```DNETCoreGPIO 23 and 24``` as above
+    - **DNETMotorDirection**: ```DNETCoreGPIO 23 and 24``` as above
       - Gets called from Nest with _Hey Google, Start Spin_
         - Means forward if enabled.
       - And _Hey Google, Stop Spin_
         - Means reverse if enabled.
-    - **DNETCoreGPIO Relay** ```DNETCoreGPIO 11 and 12``` as above
+    - **DNETRelay** ```DNETCoreGPIO 11 and 12``` as above
       - Gets called from Nest with _Hey Google, Start Relay_
         - Means switch on relay.
       - And _Hey Google, Stop relay_
         - Means switch off relay.
-    - There are other commands here not used for now.
+    - There are other commands used by Azure IoT Hub __(later)__
+ 
+## Apps
+- WhatCanISay
+  - Can ask a device,if set up there "Hey Google, start Say
+  - Will tell you what voice commands you can say on a device.
+  - Works on PC (uses cast), 2DO on RPi.
 
 **Coming:** Integrating with Azure IoT Hub
