@@ -42,8 +42,8 @@ It was said that you can't get the temperature etc from a RPi, from a .Net app t
     - **WhatCanISay** command interogates local commands.json and speaks voice commands via Google Nest as with Echo.
         - If a command has a "description" property, that is also spoken 
 - temp
-  - Place in c:\temp
-  - ** what.bat** Is batch file called by WhatCanISay command.
+  - Place contents in c:\temp
+  - **what.bat** Is batch file called by WhatCanISay command.
 ## RPi
 - .TRIGGERcmdData
   - commands.json
