@@ -133,7 +133,7 @@ namespace WhatCanISay
 							whatToSay += "Turn ";
 							if ((!string.IsNullOrEmpty(offcommand)) && allowParams)
 							{
-								whatToSay += $" On or Off ";
+								whatToSay += $" On ,or Off, ";
 							}
 							else
                             {
