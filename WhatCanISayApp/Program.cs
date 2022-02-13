@@ -92,24 +92,22 @@ namespace WhatCanISay
 				{
 					if (item.GetType() == typeof(Newtonsoft.Json.Linq.JObject))
 					{
+						//string name="";
+						string voice = "";
+						string description = "";
+						//string command="";
+						string offcommand = "";
+						bool allowParams = false;
 						Console.WriteLine("type is Object");
 						foreach (var property in item)
 						{
-							//tring name="";
-							string voice ="";
-							string description ="";
-							//string command="";
-							string offcommand = "";							
-							bool allowParams=false;
+
 							
 							Console.WriteLine("property name: " + property.Name.ToString());
 							Console.WriteLine("property value: " + property.Value.ToString());
 							if (property.Name.ToString() == "voice")
 							{
 								voice = property.Value.ToString();
-								if (whatToSay != "")
-									whatToSay += ",";
-								whatToSay += $"{property.Value.ToString()}";
 							}
 							else if (property.Name.ToString() == "description")
 							{
@@ -126,21 +124,22 @@ namespace WhatCanISay
 								if (val == "true")
 									allowParams = true;
 							}
-							if (!string.IsNullOrEmpty(voice))
+	    
+						}
+						if (!string.IsNullOrEmpty(voice))
+						{
+							if (whatToSay != "")
+								whatToSay += ",";
+							whatToSay += voice;
+							if ((!string.IsNullOrEmpty(offcommand)) && allowParams)
 							{
-								if (whatToSay != "")
-									whatToSay += ",";
-								whatToSay += voice;
-								if ((!string.IsNullOrEmpty(offcommand)) && allowParams)
-								{
-									whatToSay += $",On or Off";
-								}						
-								if (!string.IsNullOrEmpty(description))
-								{
-									whatToSay += $"Description,{property.Value.ToString()}";
-								}
+								whatToSay += $",On or Off";
+							}
+							if (!string.IsNullOrEmpty(description))
+							{
+								whatToSay += $",Description,{description}";
+							}
 
-							}	    
 						}
 					}
 				}
