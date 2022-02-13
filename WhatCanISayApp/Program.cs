@@ -95,10 +95,10 @@ namespace WhatCanISay
 						Console.WriteLine("type is Object");
 						foreach (var property in item)
 						{
-							string name="";
-							string voice =""
+							//tring name="";
+							string voice ="";
 							string description ="";
-							string command="";
+							//string command="";
 							string offcommand = "";							
 							bool allowParams=false;
 							
@@ -123,19 +123,19 @@ namespace WhatCanISay
 							else if (property.Name.ToString() == "allowParams")
 							{
 								var val = property.Value.ToString();
-								if (val.toLOower() = "true")
+								if (val= "true")
 									allowParams = true;
 							}
-							if (!string.IsNullOrEmpty(voice)
+							if (!string.IsNullOrEmpty(voice))
 							{
 								if (whatToSay != "")
 									whatToSay += ",";
-								whattosay += voice;
-								if ((!string.IsNullOrEmpty(offcommand) && allowParams)
+								whatToSay += voice;
+								if ((!string.IsNullOrEmpty(offcommand)) && allowParams)
 								{
 									whatToSay += $",On or Off";
 								}						
-								if (!string.IsNullOrEmpty(description)
+								if (!string.IsNullOrEmpty(description))
 								{
 									whatToSay += $"Description,{property.Value.ToString()}";
 								}
