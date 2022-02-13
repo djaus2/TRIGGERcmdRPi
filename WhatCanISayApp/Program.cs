@@ -11,7 +11,7 @@ namespace WhatCanISay
 		private const string _home = "~";
 		private const string _TRIGGERcmdData = ".TRIGGERcmdData";
 		private const string _commands = "commands.json";
-		private const string _tempfile = "temperature.txt";
+		private const string _tempfile = "saythis.txt";
 		
 
 		// A gem from here: https://mariusschulz.com/blog/detecting-the-operating-system-in-net-core

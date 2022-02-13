@@ -1,9 +1,0 @@
-{
-	"trigger": "WhatCanISay",
-	"command": "c:\\temp\\what.bat",
-	"offCommand": "",
-	"ground": "foreground",
-	"voice": "say",
-	"voiceReply": "",
-	"allowParams": "false"
-}

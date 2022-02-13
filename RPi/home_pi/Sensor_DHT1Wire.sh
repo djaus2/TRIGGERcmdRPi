@@ -1,4 +1,4 @@
- #!/bin/sh
+﻿ #!/bin/sh
 # Place this in ~
 # chmod +x cast.sh
 
@@ -6,7 +6,7 @@
 # file is the data file that that app writes to
 # targetpc is Windows PC where cast runs
 # trigger is the TRIGGERcmd on the targetPC to be called via curl that runs cast
-file="/tmp/temperature.txt"
+file="/tmp/saythis.txt"
 targetpc='BIGMOMMA5'
 trigger='Echo'
 
@@ -15,22 +15,16 @@ var2=$targetpc
 var3='","trigger":"'
 var4=$trigger
 var5='","params":"'
-var6='Reading'
+var6='Please wait while the sensor is read'
 var7='"}'
-
+echo $var
 var=$var1$var2$var3$var4$var5$var6$var7
+curl -X POST https://www.triggercmd.com/api/run/triggerSave \
+-H 'authorization: Bearer <Insert your token>' \
+-H 'content-type: application/json' \
+-d "$var"
 
-# echo $var
- curl -X POST https://www.triggercmd.com/api/run/triggerSave \
- -H 'authorization: Bearer <insert token>' \
- -H 'content-type: application/json' \
- -d "$var"
-
-# Need to wait for this to finish.
- sleep 4
-
-DNETCoreGPIO 15
-
+DNETCoreGPIO 14
 
 if [[ -f $file ]];then
     echo "$file exists"
@@ -47,6 +41,6 @@ echo $var
 echo
 
 curl -X POST https://www.triggercmd.com/api/run/triggerSave \
--H 'authorization: Bearer <insert token>' \
+-H 'authorization: Bearer <Insert your token>' \
 -H 'content-type: application/json' \
 -d "$var"

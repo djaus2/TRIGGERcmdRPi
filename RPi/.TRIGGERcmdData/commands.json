@@ -101,6 +101,15 @@
     "voice": "relay",
     "voiceReply": "relay",
     "allowParams": "true"
+  },
+  {
+    "trigger": "WhatCanISay",
+    "command": "bash /home/pi/what.sh",
+    "offCommand": "",
+    "ground": "foreground",
+    "voice": "say",
+    "voiceReply": "",
+    "allowParams": "false"
   }
 ]
   

@@ -35,76 +35,97 @@ It was said that you can't get the temperature etc from a RPi, from a .Net app t
 # Files
 
 ## PC
-
-- commands.json
-  - **Echo** command takes a string as a parameter and calls cast to enunciate it on Google Nest
-  - Add this via the TRIGGERcmds GUI editor _(Hidden icons from Taskbar)._
-
+- .TRIGGERcmdData
+  - commands.json
+    - Add these via the TRIGGERcmds Text/GUI editor _(Hidden icons from Taskbar)._ after TRIGGERcmd installation on PC
+    - **Echo** command takes a string as a parameter and calls cast to enunciate it on Google Nest
+    - **WhatCanISay** command interogates local commands.json and speaks voice commands via Google Nest as with Echo.
+        - If a command has a "description" property, that is also spoken 
+- temp
+  - Place in c:\temp
+  - ** what.bat** Is batch file called by WhatCanISay command.
 ## RPi
-- **Place following .sh files in ~ and chmod +x each.**
-  - Sensor_DHT1Wire.sh
-    - Place in ~ and chmod +x
-    - Scripts all of the functionality for the **Sensor** command as below.
-  - speaklocal_DHT1Wire.sh
-    - Place in ~ and chmod +
-    - As per Sensor_DHT1Wire.sh but Text to Speech is used directly on RPi
-    - Ref: [How To Make Your Raspberry Pi Speak](https://www.dexterindustries.com/howto/make-your-raspberry-pi-speak/#:~:text=Make%20sure%20your%20Raspberry%20Pi%20is%20powered%20up,to%20convert%20text%20to%20speech%20on%20the%20speakers.)
-     - ```sudo apt-get install espeak```
-  - Sensor_BME280.sh/speaklocal_BME280.sh
-    - As per DHT1Wire but using BME280 sensor
-- DNETCoreGPIO: Is .NET6.0 C# app
-  - Repository on GitHub here: [djaus2/DNETCoreGPIO](https://github.com/djaus2/DNETCoreGPIO)
-    - Clone with ```git clone github.com/djaus2/DNETCoreGPI``` in a folder on RPi in command shell
-    - Build in folder with ```dotnet build *.csproj```
-    - Need to add path to built DNETCoreGPIO  something like  ```projectdirectory/bin/Debug/Net6```
-  - Called with various parameters by TRIGGERcmd on RPi:
-    - 11.12 Turn relay on/off 
-    - 14: Get Temperature and Humidity from DHT22 1 Wire mode
-    - 15: Get Temperature, Presssure and Humidity from BME280 _(Altitude also but is erroneous)_.
-    - 21: Motor Forward
-    - 22: Motor Reverse
-    - 23: Motor Enable
-    - 24: Motor Disable
-- In repository /TRIGGERcmd folder
-  - Note folder is .TRIGGERcmd on Pi
-  - Place commands.json, the RPi trigger commands in ~/.TRIGGERcmd after TRIGGERcmd installation on RPi
-    - **Sensor**: Calls Sensor_DHT1Wire.sh
-      - Gets called from Nest with _Hey Google, start Sensor"_
-      - Actions ```DNETCoreGPIO 14``` as above which writes/overwrites Temperature and Humidity string to /tmp/temperature.txt
-      - String is read back in and curl command created to call echo on PC with the string as its parameter
-      - The read temperature and humidity are enuncitaed on the Google Nest
-    - **Local Sensor**: Calls speaklocal_DHT1Wire.sh
-      - Gets called from Nest with _Hey Google, start local"_
-      - As per Sensor but T2S is used to output directly to RPi Audio.
-    - **BME280**: Calls Sensor_BME280.sh
-      - Gets called from Nest with _Hey Google, start temp"_
-      - Actions ```DNETCoreGPIO 15``` as above which writes/overwrites Temperature, Pressure and Humidity _(and Altitude which is erroneous)_ string to /tmp/temperature.txt
-      - String is read back in and curl command created to call echo on PC with the string as its parameter
-      - The read temperature and humidity are enuncitaed on the Google Nest
-    - **BME280 Local**: Calls speaklocal_DHT1Wire.sh
-      - Gets called from Nest with _Hey Google, start bosh"_
-      - As per temp but T2S is used to output directly to RPi Audio.
-    - **DNETMotorEnable**: ```DNETCoreGPIO 21 and 22``` as above
-      - Gets called from Nest with _Hey Google, Start Motor_
-        - Means enable motor
-      - And _Hey Google, Stop Motor_
-        - Means disable motor
-    - **DNETMotorDirection**: ```DNETCoreGPIO 23 and 24``` as above
-      - Gets called from Nest with _Hey Google, Start Spin_
-        - Means forward if enabled.
-      - And _Hey Google, Stop Spin_
-        - Means reverse if enabled.
-    - **DNETRelay** ```DNETCoreGPIO 11 and 12``` as above
-      - Gets called from Nest with _Hey Google, Start Relay_
-        - Means switch on relay.
-      - And _Hey Google, Stop relay_
-        - Means switch off relay.
-    - There are other commands used by Azure IoT Hub __(later)__
+- .TRIGGERcmdData
+  - commands.json
+    - Add the commands you want using Text editor to ~/.TRIGGERcmdData after TRIGGERcmd installation on RPi
+      - **Sensor**: Calls Sensor_DHT1Wire.sh
+        - Gets called from Nest with _Hey Google, start Sensor"_
+        - Actions ```DNETCoreGPIO 14``` as above which writes/overwrites Temperature and Humidity string to /tmp/temperature.txt
+        - String is read back in and curl command created to call echo on PC with the string as its parameter
+        - The read temperature and humidity are enuncitaed on the Google Nest
+      - **Local Sensor**: Calls speaklocal_DHT1Wire.sh
+        - Gets called from Nest with _Hey Google, start local"_
+        - As per Sensor but T2S is used to output directly to RPi Audio.
+      - **BME280**: Calls Sensor_BME280.sh
+        - Gets called from Nest with _Hey Google, start temp"_
+        - Actions ```DNETCoreGPIO 15``` as above which writes/overwrites Temperature, Pressure and Humidity _(and Altitude which is erroneous)_ string to /tmp/temperature.txt
+        - String is read back in and curl command created to call echo on PC with the string as its parameter
+        - The read temperature and humidity are enuncitaed on the Google Nest
+      - **BME280 Local**: Calls speaklocal_DHT1Wire.sh
+        - Gets called from Nest with _Hey Google, start bosh"_
+        - As per temp but T2S is used to output directly to RPi Audio.
+      - **DNETMotorEnable**: ```DNETCoreGPIO 21 and 22``` as above
+        - Gets called from Nest with _Hey Google, Start Motor_
+          - Means enable motor
+        - And _Hey Google, Stop Motor_
+          - Means disable motor
+      - **DNETMotorDirection**: ```DNETCoreGPIO 23 and 24``` as above
+        - Gets called from Nest with _Hey Google, Start Spin_
+          - Means forward if enabled.
+        - And _Hey Google, Stop Spin_
+          - Means reverse if enabled.
+      - **DNETRelay** ```DNETCoreGPIO 11 and 12``` as above
+        - Gets called from Nest with _Hey Google, Start Relay_
+          - Means switch on relay.
+        - And _Hey Google, Stop relay_
+          - Means switch off relay.
+      - **WhatCanISay** 
+        - Command interogates local commands.json and forwards through PC (echo command there) 
+          - ... to speak voice commands via Google Nest as with Echo.
+        - If a command has a "description" property, that is also spoken 
+      - There are other commands used by Azure IoT Hub __(later)__
+- home_pi_
+    - **Place following .sh files in ~ and chmod +x each.**
+      - Sensor_DHT1Wire.sh
+        - Place in ~ and chmod +x
+        - Scripts all of the functionality for the **Sensor** command as below.
+      - speaklocal_DHT1Wire.sh
+        - Place in ~ and chmod +
+        - As per Sensor_DHT1Wire.sh but Text to Speech is used directly on RPi
+        - Ref: [How To Make Your Raspberry Pi Speak](https://www.dexterindustries.com/howto/make-your-raspberry-pi-speak/#:~:text=Make%20sure%20your%20Raspberry%20Pi%20is%20powered%20up,to%20convert%20text%20to%20speech%20on%20the%20speakers.)
+         - ```sudo apt-get install espeak```
+      - Sensor_BME280.sh/speaklocal_BME280.sh
+        - As per DHT1Wire but using BME280 sensor
+    - DNETCoreGPIO.sh
+      - Calls DNETCoreGPIO app with integer parameter as below.
+      - DNETCoreGPIO: Is .NET6.0 C# app
+        - Repository on GitHub here: [djaus2/DNETCoreGPIO](https://github.com/djaus2/DNETCoreGPIO)
+          - Clone with ```git clone github.com/djaus2/DNETCoreGPI``` in a folder on RPi in command shell
+          - Build in folder with ```dotnet build -c RELEASE DNETCoreGPIO.csproj```
+          - Need to add path to built DNETCoreGPIO  something like  ```projectdirectory/bin/Debug/Net6```
+        - Called with various parameters by TRIGGERcmd on RPi:
+          - 11.12 Turn relay on/off 
+          - 14: Get Temperature and Humidity from DHT22 1 Wire mode
+          - 15: Get Temperature, Presssure and Humidity from BME280 _(Altitude also but is erroneous)_.
+          - 21: Motor Forward
+          - 22: Motor Reverse
+          - 23: Motor Enable
+          - 24: Motor Disable
+    - what.sh
+      - As per sensor_xx.sh scripts but calls whatcanisay instead of DNETCoreGPIO.
+    - trstart.sh
+      - Start TRIGGERcmd agent on RPi
+      - Need user token
+    - tr.sh
+      - Restarts stopped TRIGGERcmd on RPi (token not required).     
+
+
  
 ## Apps
 - WhatCanISay
   - Can ask a device,if set up there "Hey Google, start Say
   - Will tell you what voice commands you can say on a device.
-  - Works on PC (uses cast), 2DO on RPi.
+  - Works on PC (uses cast)
+  - On RPi forwards through Echo on PC. 2Do
 
 **Coming:** Integrating with Azure IoT Hub
