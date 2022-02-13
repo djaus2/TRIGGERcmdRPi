@@ -2,7 +2,7 @@
 
 **_Nb: This is rebuild of this Repository. Thanks for coming back._**  
   
-Trigger commands in .NET app running on Raspberry Pi from Google Nest with sensor values spoken on the Nest.
+Trigger commands in .NET app running on Raspberry Pi from Google Nest with sensor values spoken on a Google Nest (Mini) via a PC.
 
 # About
 
@@ -21,7 +21,7 @@ It was said that you can't get the temperature etc from a RPi, from a .Net app t
   - Follow instructions on the Instruction page
   - Get the token
 - Cast installed on PC from [here](https://www.push2run.com/phpbb/viewtopic.php?t=1042)
-- Insert the token in the curl command in Sensor_DHT1Wire.sh and Sensor_BME280.sh
+- Insert the token in the curl command in Sensor_DHT1Wire.sh, Sensor_BME280.sh and what.sh on RPi
 - Files as below installed copied to PC/RPi
 - Clone [djaus2/DNETCoreGPIO](https://github.com/djaus2/DNETCoreGPIO) ro RPi and setup for .Net6 to build there or build on PC and deploy to RPi.
   - Add to PATH on RPi
@@ -31,6 +31,7 @@ It was said that you can't get the temperature etc from a RPi, from a .Net app t
 
 - On PC: The agent should auto start.
 - On the RPi:in a command shell run ```triggercmdagent``` and enter the token when prompted.
+  - Note trstart.sh and tr.sh commands as below
 
 # Files
 
