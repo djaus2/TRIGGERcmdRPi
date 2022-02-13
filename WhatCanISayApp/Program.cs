@@ -130,11 +130,16 @@ namespace WhatCanISay
 						{
 							if (whatToSay != "")
 								whatToSay += ",";
-							whatToSay += voice;
+							whatToSay += "Turn ";
 							if ((!string.IsNullOrEmpty(offcommand)) && allowParams)
 							{
-								whatToSay += $",On or Off";
+								whatToSay += $" On or Off ";
 							}
+							else
+                            {
+								whatToSay += "On ";
+                            }
+							whatToSay += voice;
 							if (!string.IsNullOrEmpty(description))
 							{
 								whatToSay += $",Description,{description}";
