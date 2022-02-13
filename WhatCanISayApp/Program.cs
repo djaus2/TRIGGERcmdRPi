@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using Newtonsoft;
 using System.Runtime.InteropServices;
 using Newtonsoft.Json.Linq;
@@ -8,7 +8,7 @@ namespace WhatCanISay
 {
 	class Program
 	{
-		private const string _home = "~";
+		private const string _home = "/home/pi";
 		private const string _TRIGGERcmdData = ".TRIGGERcmdData";
 		private const string _commands = "commands.json";
 		private const string _tempfile = "saythis.txt";
@@ -41,10 +41,12 @@ namespace WhatCanISay
 			}
 			else if (OperatingSystem.IsLinux())
 			{
-				home = "~";
+				home = "/home/pi";
 				TRIGGERcmdData = home + "/" + _TRIGGERcmdData + "/";
+				Console.WriteLine(TRIGGERcmdData);
 			}
 			commands = TRIGGERcmdData + _commands;
+			Console.WriteLine(commands);
 			string whatToSay = "";
 			using (StreamReader reader = File.OpenText(commands))
 			{
