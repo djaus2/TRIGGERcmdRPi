@@ -123,7 +123,7 @@ namespace WhatCanISay
 							else if (property.Name.ToString() == "allowParams")
 							{
 								var val = property.Value.ToString();
-								if (val= "true")
+								if (val == "true")
 									allowParams = true;
 							}
 							if (!string.IsNullOrEmpty(voice))
