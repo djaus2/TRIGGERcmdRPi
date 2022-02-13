@@ -95,21 +95,52 @@ namespace WhatCanISay
 						Console.WriteLine("type is Object");
 						foreach (var property in item)
 						{
+							string name="";
+							string voice =""
+							string description ="";
+							string command="";
+							string offcommand = "";							
+							bool allowParams=false;
+							
 							Console.WriteLine("property name: " + property.Name.ToString());
 							Console.WriteLine("property value: " + property.Value.ToString());
 							if (property.Name.ToString() == "voice")
 							{
+								voice = property.Value.ToString();
 								if (whatToSay != "")
 									whatToSay += ",";
 								whatToSay += $"{property.Value.ToString()}";
 							}
 							else if (property.Name.ToString() == "description")
 							{
+								description = property.Value.ToString();
 								// Can add a "description" property to a command to be spoken, in Text Command Editor.
+							}
+							else if (property.Name.ToString() == "offcommand")
+							{
+								offcommand = property.Value.ToString();
+							}
+							else if (property.Name.ToString() == "allowParams")
+							{
+								var val = property.Value.ToString();
+								if (val.toLOower() = "true")
+									allowParams = true;
+							}
+							if (!string.IsNullOrEmpty(voice)
+							{
 								if (whatToSay != "")
 									whatToSay += ",";
-								whatToSay += $"Description,{property.Value.ToString()}";
-							}
+								whattosay += voice;
+								if ((!string.IsNullOrEmpty(offcommand) && allowParams)
+								{
+									whatToSay += $",On or Off";
+								}						
+								if (!string.IsNullOrEmpty(description)
+								{
+									whatToSay += $"Description,{property.Value.ToString()}";
+								}
+
+							}	    
 						}
 					}
 				}
