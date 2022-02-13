@@ -113,7 +113,7 @@ It was said that you can't get the temperature etc from a RPi, from a .Net app t
           - 23: Motor Enable
           - 24: Motor Disable
     - what.sh
-      - As per sensor_xx.sh scripts but calls whatcanisay instead of DNETCoreGPIO.
+      - As per sensor_xx.sh scripts but calls whatcanisay app instead of DNETCoreGPIO app.
     - trstart.sh
       - Start TRIGGERcmd agent on RPi
       - Need user token
