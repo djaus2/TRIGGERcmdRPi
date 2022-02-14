@@ -3,7 +3,17 @@ using Newtonsoft;
 using System.Runtime.InteropServices;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System;
 
+/// <summary>
+/// If run with no parameters, interogates local comms.json, default mode detail
+/// If run with detail,simple runs in that mode.
+/// - Simple just lists the voice commnds
+/// - Detail list exactly what to say and can give description.
+/// Relay is when called remotely where commas need conversion to newline.
+/// - Remote device passes csv string over TRIGGERcmd
+/// - The remote device does the interogation but does not do the comma to newline conversion.
+/// </summary>
 namespace WhatCanISay
 {
 	class Program
@@ -12,10 +22,10 @@ namespace WhatCanISay
 		private const string _TRIGGERcmdData = ".TRIGGERcmdData";
 		private const string _commands = "commands.json";
 		private const string _tempfile = "saythis.txt";
-		
+		private const string intro =  "These are the commands you can say ";
+		enum Mode { simple, detail, relay };
 
-		// A gem from here: https://mariusschulz.com/blog/detecting-the-operating-system-in-net-core
-		public static class OperatingSystem
+		private static class OperatingSystem
 		{
 			public static bool IsWindows() =>
 				RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
@@ -30,14 +40,36 @@ namespace WhatCanISay
 		static void Main(string[] args)
 		{
 			//C:\Users\DavidJones\\.TRIGGERcmdData
-			string home ;
-			string TRIGGERcmdData="";
-			string commands ;
+			string home;
+			string TRIGGERcmdData = "";
+			string commands;
+
+			int i = args.Length;
+
+			Mode mode = Mode.detail;
+
+			if (args.Length != 0)
+			{
+				switch (args[0].ToLower())
+				{
+					case "simple":
+						mode = Mode.simple;
+						break;
+					case "detail":
+						mode = Mode.detail;
+						break;
+					default:
+						// If relaying from Pi then csv string is passed.
+						mode = Mode.relay;
+						break;
+				}
+
+			}
 
 			if (OperatingSystem.IsWindows())
 			{
 				home = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-				TRIGGERcmdData = home + "\\" + _TRIGGERcmdData +"\\";
+				TRIGGERcmdData = home + "\\" + _TRIGGERcmdData + "\\";
 			}
 			else if (OperatingSystem.IsLinux())
 			{
@@ -46,12 +78,21 @@ namespace WhatCanISay
 				Console.WriteLine(TRIGGERcmdData);
 			}
 			commands = TRIGGERcmdData + _commands;
+			
 			Console.WriteLine(commands);
 			string whatToSay = "";
-			using (StreamReader reader = File.OpenText(commands))
+
+			if (mode == Mode.relay)
 			{
-				dynamic o = (dynamic)JToken.ReadFrom(new JsonTextReader(reader));
-				whatToSay = Iterate(o);
+				whatToSay = args[0];
+			}
+			else
+			{
+				using (StreamReader reader = File.OpenText(commands))
+				{
+					dynamic commandz = (dynamic)JToken.ReadFrom(new JsonTextReader(reader));
+					whatToSay = Iterate(commandz, mode);
+				}
 			}
 
 			Console.WriteLine(whatToSay);
@@ -61,7 +102,7 @@ namespace WhatCanISay
 		public static void WriteT2S(string txt)
 		{
 
-			string tmp = "/tmp/temperature.txt";
+			string tmp = "/tmp/saythis.txt";
 			if (OperatingSystem.IsWindows())
 			{
 				tmp = $"c:\\temp\\{_tempfile}";
@@ -77,12 +118,12 @@ namespace WhatCanISay
 				Console.WriteLine("File deleted.");
 			}
 			// Puting in newlines means there is a pause between.
-			string what = $"These are the commands you can say,{txt}";
+			string what = txt;
 			string[] lines = what.Split(',');
 			File.WriteAllLines(tmp,lines);
 			return;
 		}
-		public static string Iterate(dynamic variable)
+		private static string Iterate(dynamic variable, Mode mode)
 		{
 			string whatToSay="";
 			if (variable.GetType() == typeof(Newtonsoft.Json.Linq.JArray))
@@ -129,20 +170,28 @@ namespace WhatCanISay
 						if (!string.IsNullOrEmpty(voice))
 						{
 							if (whatToSay != "")
-								whatToSay += ",";
-							whatToSay += "Turn ";
-							if ((!string.IsNullOrEmpty(offcommand)) && allowParams)
-							{
-								whatToSay += $" On ,or Off, ";
-							}
+								whatToSay += ", ";
 							else
-                            {
-								whatToSay += "On ";
-                            }
-							whatToSay += voice;
-							if (!string.IsNullOrEmpty(description))
+								whatToSay = $"{intro}, ";
+							if (mode == Mode.detail)
 							{
-								whatToSay += $",Description,{description}";
+								whatToSay += "Turn ";
+								if ((!string.IsNullOrEmpty(offcommand)) && allowParams)
+								{
+									whatToSay += $" On ,or Off, ";
+								}
+								else
+								{
+									whatToSay += " On ";
+								}
+							}
+							whatToSay += voice;
+							if (mode == Mode.detail)
+							{
+								if (!string.IsNullOrEmpty(description))
+								{
+									whatToSay += $",Description,{description}";
+								}
 							}
 
 						}
