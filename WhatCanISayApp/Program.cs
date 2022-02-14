@@ -7,9 +7,9 @@ using System;
 
 /// <summary>
 /// If run with no parameters, interogates local comms.json, default mode detail
-/// If run with detail,simple runs in that mode.
-/// - Simple just lists the voice commnds
-/// - Detail list exactly what to say and can give description.
+/// If run with detail/s,voices/s runs in that mode.
+/// - Voice/s just lists the voice commnds
+/// - Detail/s list exactly what to say and can give description.
 /// Relay is when called remotely where commas need conversion to newline.
 /// - Remote device passes csv string over TRIGGERcmd
 /// - The remote device does the interogation but does not do the comma to newline conversion.
@@ -23,7 +23,7 @@ namespace WhatCanISay
 		private const string _commands = "commands.json";
 		private const string _tempfile = "saythis.txt";
 		private const string intro =  "These are the commands you can say ";
-		enum Mode { simple, detail, relay };
+		enum Mode { simple, detail, relay, remotesimple,  remotedetail};
 
 		private static class OperatingSystem
 		{
@@ -52,11 +52,21 @@ namespace WhatCanISay
 			{
 				switch (args[0].ToLower())
 				{
-					case "simple":
+					case "voice":
+					case "voices":
 						mode = Mode.simple;
 						break;
 					case "detail":
+					case "details":
 						mode = Mode.detail;
+						break;
+					case "remotedetail":
+					case "remotedetails":
+						mode= Mode.remotedetail
+						break;
+					case "renotevoice":
+					case "remotevoices":
+						mode = Mode.remotesimple;
 						break;
 					default:
 						// If relaying from Pi then csv string is passed.
@@ -96,10 +106,10 @@ namespace WhatCanISay
 			}
 
 			Console.WriteLine(whatToSay);
-			WriteT2S(whatToSay);
+			WriteT2S(whatToSay, mode);
 		}
 
-		public static void WriteT2S(string txt)
+		public static void WriteT2S(string txt, Mode mode)
 		{
 
 			string tmp = "/tmp/saythis.txt";
@@ -118,9 +128,15 @@ namespace WhatCanISay
 				Console.WriteLine("File deleted.");
 			}
 			// Puting in newlines means there is a pause between.
+			// But on RPi don't split here, That is done on PC.
 			string what = txt;
-			string[] lines = what.Split(',');
-			File.WriteAllLines(tmp,lines);
+			if ((mode == Mode.detail) ||  (mode == Mode.simple))
+            { 
+				string[] lines = what.Split(',');
+				File.WriteAllLines(tmp,lines);
+			}
+			else
+				File.WriteAllText(txt);
 			return;
 		}
 		private static string Iterate(dynamic variable, Mode mode)
@@ -173,7 +189,7 @@ namespace WhatCanISay
 								whatToSay += ", ";
 							else
 								whatToSay = $"{intro}, ";
-							if (mode == Mode.detail)
+							if ((mode == Mode.detail) || (mode == remotedetail))
 							{
 								whatToSay += "Turn ";
 								if ((!string.IsNullOrEmpty(offcommand)) && allowParams)
@@ -186,7 +202,7 @@ namespace WhatCanISay
 								}
 							}
 							whatToSay += voice;
-							if (mode == Mode.detail)
+							if ((mode == Mode.detail) || (mode == remotedetail))
 							{
 								if (!string.IsNullOrEmpty(description))
 								{

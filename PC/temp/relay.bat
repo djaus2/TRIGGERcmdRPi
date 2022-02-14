@@ -4,6 +4,6 @@ REM Add contents of commands.json to commands.json on PC in <user>\.TRIGGERcmdDa
 REM Build app dotnet build:  
 REM dotnet build -c RELEASE WhatCanISay.csproj 
 REM ... in WhatCanISay folder. Need path here or add to Path.
-<Path to WhatCanISay folder>\bin\Release\net6.0\WhatCanISay
+WhatCanISay $1
 cast -device "Family Room speaker"    -file c:\temp\sayythis.txt 
 REM NB echo command is used by RPi to forward its saythis.txt to Google Home

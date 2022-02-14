@@ -1,6 +1,7 @@
 # TRIGGERcmd Control of RPi
 
-**_Nb: This is rebuild of this Repository. Thanks for coming back._**  
+**_Nb1:_This is a work in progress. Should be OK in a day or so.**
+**_Nb2: This is rebuild of this Repository. Thanks for coming back._**  
   
 Trigger commands in .NET app running on Raspberry Pi from Google Nest with sensor values spoken on a Google Nest (Mini) via a PC.
 

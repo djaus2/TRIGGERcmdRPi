@@ -10,7 +10,7 @@
   },
   {
     "trigger": "WhatCanISay",
-    "command": "c:\\temp\\what.bat",
+    "command": "c:\\temp\\relay.bat",
     "offCommand": "",
     "ground": "foreground",
     "voice": "say",

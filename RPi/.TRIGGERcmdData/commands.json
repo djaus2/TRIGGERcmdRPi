@@ -103,11 +103,20 @@
     "allowParams": "true"
   },
   {
-    "trigger": "WhatCanISay",
+    "trigger": "WhatCanISayDetail",
     "command": "bash /home/pi/what.sh",
     "offCommand": "",
     "ground": "foreground",
     "voice": "say",
+    "voiceReply": "",
+    "allowParams": "false"
+  },
+  {
+    "trigger": "WhatCanISayBrief",
+    "command": "bash /home/pi/voices.sh",
+    "offCommand": "",
+    "ground": "foreground",
+    "voice": "voices",
     "voiceReply": "",
     "allowParams": "false"
   }
