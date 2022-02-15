@@ -2,7 +2,7 @@
   "profiles": {
     "WhatCanISay": {
       "commandName": "Project",
-      "commandLineArgs": "simple"
+      "commandLineArgs": "detail"
     }
   }
 }

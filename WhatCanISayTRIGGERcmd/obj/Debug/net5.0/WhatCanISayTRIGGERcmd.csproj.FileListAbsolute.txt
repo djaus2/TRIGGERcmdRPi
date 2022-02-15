@@ -1,0 +1,12 @@
+C:\Users\david\Source\Repos\djaus2\TRIGGERcmdRPi\WhatCanISayTRIGGERcmd\obj\Debug\net5.0\WhatCanISayTRIGGERcmd.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\david\Source\Repos\djaus2\TRIGGERcmdRPi\WhatCanISayTRIGGERcmd\obj\Debug\net5.0\WhatCanISayTRIGGERcmd.AssemblyInfoInputs.cache
+C:\Users\david\Source\Repos\djaus2\TRIGGERcmdRPi\WhatCanISayTRIGGERcmd\obj\Debug\net5.0\WhatCanISayTRIGGERcmd.AssemblyInfo.cs
+C:\Users\david\Source\Repos\djaus2\TRIGGERcmdRPi\WhatCanISayTRIGGERcmd\obj\Debug\net5.0\WhatCanISayTRIGGERcmd.csproj.CoreCompileInputs.cache
+C:\Users\david\Source\Repos\djaus2\TRIGGERcmdRPi\WhatCanISayTRIGGERcmd\bin\Debug\net5.0\WhatCanISayTRIGGERcmd.deps.json
+C:\Users\david\Source\Repos\djaus2\TRIGGERcmdRPi\WhatCanISayTRIGGERcmd\bin\Debug\net5.0\WhatCanISayTRIGGERcmd.dll
+C:\Users\david\Source\Repos\djaus2\TRIGGERcmdRPi\WhatCanISayTRIGGERcmd\bin\Debug\net5.0\ref\WhatCanISayTRIGGERcmd.dll
+C:\Users\david\Source\Repos\djaus2\TRIGGERcmdRPi\WhatCanISayTRIGGERcmd\bin\Debug\net5.0\WhatCanISayTRIGGERcmd.pdb
+C:\Users\david\Source\Repos\djaus2\TRIGGERcmdRPi\WhatCanISayTRIGGERcmd\obj\Debug\net5.0\WhatCanISayTRIGGERcmd.dll
+C:\Users\david\Source\Repos\djaus2\TRIGGERcmdRPi\WhatCanISayTRIGGERcmd\obj\Debug\net5.0\ref\WhatCanISayTRIGGERcmd.dll
+C:\Users\david\Source\Repos\djaus2\TRIGGERcmdRPi\WhatCanISayTRIGGERcmd\obj\Debug\net5.0\WhatCanISayTRIGGERcmd.pdb
+C:\Users\david\Source\Repos\djaus2\TRIGGERcmdRPi\WhatCanISayTRIGGERcmd\obj\Debug\net5.0\WhatCanISayTRIGGERcmd.csproj.AssemblyReference.cache

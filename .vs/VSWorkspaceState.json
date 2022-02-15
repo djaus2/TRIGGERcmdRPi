@@ -4,6 +4,9 @@
     "\\PC",
     "\\PC\\.TRIGGERcmdData",
     "\\PC\\temp",
+    "\\RPi",
+    "\\RPi\\.TRIGGERcmdData",
+    "\\RPi\\home_pi",
     "\\WhatCanISayApp"
   ],
   "SelectedNode": "\\WhatCanISayApp\\Program.cs",
