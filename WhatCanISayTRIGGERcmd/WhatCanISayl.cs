@@ -13,6 +13,26 @@ using System.IO;
 /// Relay is when called remotely where commas need conversion to newline.
 /// - Remote device passes csv string over TRIGGERcmd
 /// - The remote device does the interogation but does not do the comma to newline conversion.
+/// Sample usage:
+////////////////////////////////////////////////////////////////////////////////////////////
+//// static void Main(string[] args)
+//// {
+////	WhatCanISayLib.Mode mode = WhatCanISayLib.Mode.simple;
+////	string jsonCmds = WhatCanISayLib.TRIGGERcmds.GetCmdsPath(args, out mode);
+////
+////
+////	if (mode == WhatCanISayLib.Mode.relay)
+////	{
+////		string whatToSay = jsonCmds;
+////		WhatCanISayLib.Parse(mode, "", whatToSay);
+////	}
+////	else
+////	{
+////		string jsonCommandsPath = jsonCmds;
+////		WhatCanISayLib.Parse(mode, jsonCommandsPath, "");
+////	};
+//// }
+/////////////////////////////////////////////////////////////////////////////////////////////
 /// </summary>
 namespace WhatCanISayTRIGGERcmd
 {
@@ -31,13 +51,21 @@ namespace WhatCanISayTRIGGERcmd
 
 	public static class WhatCanISayLib
 	{
-		private const string _home = "/home/pi";
-		private const string _TRIGGERcmdData = ".TRIGGERcmdData";
-		private const string _commands = "commands.json";
-		private const string _tempfile = "saythis.txt";
-		private const string intro = "These are the commands you can say ";
-		public enum Mode { simple, detail, relay, remotesimple, remotedetail };
+		/// <summary>
+		///  These can be customised:
+		/// </summary>
+		public static string TempFilename { get; set; } = "saythis.txt";
+		public static string TRIGGERcmdDataFolderName { get; set; } = ".TRIGGERcmdData";
+		public static string commandsJsonFilename { get; set; } = "commands.json";
+		public static string IntroText { get; set; } = "These are the commands you can say ";
 
+		/// <summary>
+		/// These can be teh first parameter as a string to set teh operational mode
+		/// </summary>
+		public enum Mode { simple, detail, relay, remotesimple, remotedetail }
+
+		// The TRIGGERcmdDataFolderName is assumed to be under this folder:
+		private const string _home = "/home/pi";
 
 		/// <summary>
 		/// 1. Reads commands.json if not relay mode and geneedates what to say as csv string.
@@ -67,7 +95,6 @@ namespace WhatCanISayTRIGGERcmd
 				}
 			}
 
-			Console.WriteLine(whatToSay);
 			return WriteT2S(whatToSay, mode);
 		}
 
@@ -83,11 +110,11 @@ namespace WhatCanISayTRIGGERcmd
 			string tmp = "/tmp/saythis.txt";
 			if (OperatingSystem.IsWindows())
 			{
-				tmp = $"c:\\temp\\{_tempfile}";
+				tmp = $"c:\\temp\\{TempFilename}";
 			}
 			else if (OperatingSystem.IsLinux())
 			{
-				tmp = $"/tmp/{_tempfile}";
+				tmp = $"/tmp/{TempFilename}";
 			}
 			if (File.Exists(tmp))
 			{
@@ -98,7 +125,8 @@ namespace WhatCanISayTRIGGERcmd
 			// Puting in newlines means there is a pause between.
 			// But on RPi don't split here, That is done on PC.
 			string what = txt;
-			if ((mode == Mode.detail) || (mode == Mode.simple))
+			Console.WriteLine($"Writing: {what}");
+			if ((mode == Mode.detail) || (mode == Mode.simple) || mode== Mode.relay)
 			{
 				string[] lines = what.Split(',');
 				File.WriteAllLines(tmp, lines);
@@ -164,9 +192,13 @@ namespace WhatCanISayTRIGGERcmd
 							if (whatToSay != "")
 								whatToSay += ", ";
 							else
-								whatToSay = $"{intro}, ";
+								whatToSay = $"{IntroText}, ";
 							if ((mode == Mode.detail) || (mode == Mode.remotedetail))
 							{
+								if (whatToSay == "")
+									whatToSay = $"{IntroText}, ";
+								else
+									whatToSay += ", ";
 								whatToSay += "Turn ";
 								if ((!string.IsNullOrEmpty(offcommand)) && allowParams)
 								{
@@ -255,15 +287,15 @@ namespace WhatCanISayTRIGGERcmd
 					if (OperatingSystem.IsWindows())
 					{
 						home = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-						TRIGGERcmdData = home + "\\" + _TRIGGERcmdData + "\\";
+						TRIGGERcmdData = home + "\\" + TRIGGERcmdDataFolderName + "\\";
 					}
 					else if (OperatingSystem.IsLinux())
 					{
 						home = "/home/pi";
-						TRIGGERcmdData = home + "/" + _TRIGGERcmdData + "/";
+						TRIGGERcmdData = home + "/" + TRIGGERcmdDataFolderName + "/";
 						Console.WriteLine(TRIGGERcmdData);
 					}
-					commandsJsonPath = TRIGGERcmdData + _commands;
+					commandsJsonPath = TRIGGERcmdData + commandsJsonFilename;
 					retValue = commandsJsonPath;
 				};
 				return retValue;
