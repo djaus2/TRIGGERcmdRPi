@@ -42,11 +42,16 @@ It was said that you can't get the temperature etc from a RPi, from a .Net app t
   - commands.json
     - Add these via the TRIGGERcmds Text/GUI editor _(Hidden icons from Taskbar)._ after TRIGGERcmd installation on PC
     - **Echo** command takes a string as a parameter and calls cast to enunciate it on Google Nest
-    - **WhatCanISay** command interogates local commands.json and speaks voice commands via Google Nest as with Echo.
-        - If a command has a "description" property, that is also spoken 
+    - **WhatCanISay[Brief/Detail/Relay]** command interogates local commands.json and speaks voice commands via Google Nest as with Echo.
+        - Command interogates local commands.json and forwards through PC (echo command there) 
+          - ... to speak voice commands via Google Nest as with Echo.
+        = Brief just lists the command voices
+        - Detail:
+          - If a command has a "description" property, that is also spoken 
+          - If On/Off thenthat is explained.
+        - Used by RPi to forward message through PC
 - temp
   - Place contents in c:\temp
-  - **what.bat** Is batch file called by WhatCanISay command.
 ## RPi
 - .TRIGGERcmdData
   - commands.json
@@ -82,10 +87,13 @@ It was said that you can't get the temperature etc from a RPi, from a .Net app t
           - Means switch on relay.
         - And _Hey Google, Stop relay_
           - Means switch off relay.
-      - **WhatCanISay** 
+      - **WhatCanISay[Brief/Detail]**
         - Command interogates local commands.json and forwards through PC (echo command there) 
           - ... to speak voice commands via Google Nest as with Echo.
-        - If a command has a "description" property, that is also spoken 
+        = Brief just lists the command voices
+        - Detail:
+          - If a command has a "description" property, that is also spoken 
+          - If On/Off thenthat is explained.
       - There are other commands used by Azure IoT Hub __(later)__
 - home_pi_
     - **Place following .sh files in ~ and chmod +x each.**
@@ -114,7 +122,7 @@ It was said that you can't get the temperature etc from a RPi, from a .Net app t
           - 22: Motor Reverse
           - 23: Motor Enable
           - 24: Motor Disable
-    - what.sh
+    - what-[voices/detail].sh
       - As per sensor_xx.sh scripts but calls whatcanisay app instead of DNETCoreGPIO app.
     - trstart.sh
       - Start TRIGGERcmd agent on RPi
