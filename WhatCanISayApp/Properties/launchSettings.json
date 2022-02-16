@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "WhatCanISay": {
-      "commandName": "Project",
-      "commandLineArgs": "\"This is what you can say,one,two,three,four\""
-    }
-  }
-}
