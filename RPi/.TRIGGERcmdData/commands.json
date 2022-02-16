@@ -104,19 +104,19 @@
   },
   {
     "trigger": "WhatCanISayDetail",
-    "command": "bash /home/pi/what.sh",
+    "command": "bash /home/pi/what-detail.sh",
     "offCommand": "",
     "ground": "foreground",
-    "voice": "say",
+    "voice": "brief",
     "voiceReply": "",
     "allowParams": "false"
   },
   {
     "trigger": "WhatCanISayBrief",
-    "command": "bash /home/pi/voices.sh",
+    "command": "bash /home/pi/what-voices.sh",
     "offCommand": "",
     "ground": "foreground",
-    "voice": "voices",
+    "voice": "say",
     "voiceReply": "",
     "allowParams": "false"
   }

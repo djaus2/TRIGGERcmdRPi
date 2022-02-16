@@ -9,7 +9,7 @@
     "allowParams": "true"
   },
   {
-    "trigger": "WhatCanISayShort",
+    "trigger": "WhatCanISayBrief",
     "command": "c:\\temp\\what-voices.bat",
     "offCommand": "",
     "ground": "foreground",
