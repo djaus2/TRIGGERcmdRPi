@@ -1,0 +1,1 @@
+copy /Y what*.bat c:\temp 

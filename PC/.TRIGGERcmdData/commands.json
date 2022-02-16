@@ -1,7 +1,7 @@
 [
   {
     "trigger": "Echo",
-    "command": "cast -device \"Family Room speaker\"    -text ",
+    "command": "cast -device Nest   -text ",
     "offCommand": "",
     "ground": "foreground",
     "voice": "echo",
