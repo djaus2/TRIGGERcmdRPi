@@ -9,11 +9,29 @@
     "allowParams": "true"
   },
   {
-    "trigger": "WhatCanISay",
-    "command": "c:\\temp\\relay.bat",
+    "trigger": "WhatCanISayShort",
+    "command": "c:\\temp\\what-voices.bat",
     "offCommand": "",
     "ground": "foreground",
     "voice": "say",
+    "voiceReply": "",
+    "allowParams": "false"
+  },
+  {
+    "trigger": "WhatCanISayDetail",
+    "command": "c:\\temp\\what-detail.bat",
+    "offCommand": "",
+    "ground": "foreground",
+    "voice": "detail",
+    "voiceReply": "",
+    "allowParams": "false"
+  },
+  {
+    "trigger": "WhatCanISayRelay",
+    "command": "c:\\temp\\what-relay.bat",
+    "offCommand": "",
+    "ground": "foreground",
+    "voice": "relay",
     "voiceReply": "",
     "allowParams": "false"
   }
