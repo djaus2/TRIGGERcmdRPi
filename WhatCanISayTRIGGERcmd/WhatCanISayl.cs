@@ -94,8 +94,26 @@ namespace WhatCanISayTRIGGERcmd
 					whatToSay = Iterate(commandz, mode);
 				}
 			}
-
+			else
+            {
+				whatToSay = TransformRelayedText(whatToSay);
+            }
 			return WriteT2S(whatToSay, mode);
+		}
+
+		private static string TransformRelayedText( string what)
+        {
+			what = what.Replace('_', ' ');
+			what = what.Replace('~', ',');
+			what = $"{IntroText},{what}";
+			return what;
+        }
+
+		private static string TransformRTextForRelay(string what)
+		{
+			what = what.Replace(' ', '_');
+			what = what.Replace(',', '~');
+			return what;
 		}
 
 		/// <summary>
@@ -104,7 +122,7 @@ namespace WhatCanISayTRIGGERcmd
 		/// <param name="txt">text to be spoken</param>
 		/// <param name="mode">One of the Mode types. If not remote then split into lines based upon csv</param>
 		/// <returns></returns>
-		private static string WriteT2S(string txt, Mode mode)
+		private static string WriteT2S(string what, Mode mode)
 		{
 
 			string tmp = "/tmp/saythis.txt";
@@ -124,12 +142,17 @@ namespace WhatCanISayTRIGGERcmd
 			}
 			// Puting in newlines means there is a pause between.
 			// But on RPi don't split here, That is done on PC.
-			string what = txt;
+
 			Console.WriteLine($"Writing: {what}");
 			if ((mode == Mode.detail) || (mode == Mode.simple) || mode== Mode.relay)
 			{
 				string[] lines = what.Split(',');
 				File.WriteAllLines(tmp, lines);
+			}
+			else if ((mode == Mode.remotedetail) || (mode == Mode.remotesimple))
+			{
+				what = TransformRTextForRelay(what);
+				File.WriteAllText(tmp, what);
 			}
 			else
 				File.WriteAllText(tmp, what);
@@ -190,28 +213,25 @@ namespace WhatCanISayTRIGGERcmd
 						if (!string.IsNullOrEmpty(voice))
 						{
 							if (whatToSay != "")
+							{
 								whatToSay += ", ";
-							else
+							}
+							else if ((mode != Mode.remotedetail) && (mode != Mode.remotesimple))
+							{
 								whatToSay = $"{IntroText}, ";
+							}
 							if ((mode == Mode.detail) || (mode == Mode.remotedetail))
 							{
-								if (whatToSay == "")
-									whatToSay = $"{IntroText}, ";
-								else
-									whatToSay += ", ";
-								whatToSay += "Turn ";
-								if ((!string.IsNullOrEmpty(offcommand)) && allowParams)
-								{
-									whatToSay += $" On ,or Off, ";
-								}
-								else
-								{
-									whatToSay += " On ";
-								}
+								whatToSay += "Turn On ";
 							}
 							whatToSay += voice;
 							if ((mode == Mode.detail) || (mode == Mode.remotedetail))
 							{
+								if ((!string.IsNullOrEmpty(offcommand)) && allowParams)
+								{
+									whatToSay +="  ,Or Turn Off ";
+									whatToSay += voice;
+								}
 								if (!string.IsNullOrEmpty(description))
 								{
 									whatToSay += $",Description,{description}";

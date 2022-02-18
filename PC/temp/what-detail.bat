@@ -6,6 +6,6 @@ REM Build app dotnet build:
 REM dotnet build -c RELEASE WhatCanISay.csproj 
 REM ... in WhatCanISay folder. Need path here or add to Path.
 <Path to built app folder>\WhatCanISay detail
-Rem eg;"C:\Users\USER\source\repos\djaus2\TRIGGERcmdRPi\WhatCanISayApp\bin\Release\net5"
+Rem eg;"C:\Users\USER\source\repos\djaus2\TRIGGERcmdRPi\WhatCanISayApp\bin\Release\net5\WhatCanISay detail"
 cast -device "Nest"    -file c:\temp\saythis.txt 
 REM NB echo command is used by RPi to forward its saythis.txt to Google Home
