@@ -1,7 +1,8 @@
 {
   "profiles": {
     "WhatCanISay": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "remotedetail"
     }
   }
 }

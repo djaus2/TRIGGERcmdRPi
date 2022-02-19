@@ -1,0 +1,444 @@
+    1  firewall-cmd
+    2  netstat -lnp|grep cpsrvd
+    3  install netstat
+    4  apt-get install net-tools
+    5  sudo apt-get install net-tools
+    6  apt-file search --regexp '/netstat$'
+    7  sudo apt-file search --regexp '/netstat$'
+    8  sudo reboot
+    9  wget http://localhost:5000
+   10  curl http://localhost:5000
+   11  wget http://localhost:5000 --no-check-certificate
+   12  cat index.html
+   13  wget http://localhost:5001 --no-check-certificate
+   14  wget http://localhost:5000 --no-check-certificate
+   15  man wget
+   16  wget
+   17  wget --help
+   18  wget --help | more
+   19  /etc/init.d/iptables restart
+   20  sudo iptables
+   21  sudo iptables -A INPUT -p tcp --dport 12375 -j ACCEPT
+   22  sudo iptables -A INPUT -p tcp --dport 5000 -j ACCEPT
+   23  sudo iptables -V
+   24  sudo nftables -V
+   25  sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+   26  sudo iptables -V
+   27  sudo iptables -A INPUT -p tcp --dport 5000 -j ACCEPT
+   28  /etc/init.d/iptable restart
+   29  ls etc
+   30  ls /etc
+   31  ls /etc/init.d
+   32  ls /etc/init.d/networking
+   33  dotnet new
+   34  dotnet new mvc --help
+   35  echo $(pwd)
+   36  cd apps
+   37  mkdir web2
+   38  cd web2
+   39  dotnet new mvc --auth None
+   40  dotnet run
+   41  cd ..
+   42  mkdir web2
+   43  mkdir web3
+   44  cd web3
+   45  dotnet new
+   46  dotnet ew webapp
+   47  dotnet
+   48  dotnet new webapp
+   49  dotnet run
+   50  &dotnet run
+   51  cd ..
+   52  mkdir web4
+   53  cd web4
+   54  dotnet new
+   55  dotnet new blazorserver
+   56  dotnet run
+   57  cd ..\web1
+   58  cd ..
+   59  dir
+   60  cd web1
+   61  dotnet run
+   62  ls
+   63  cat program.cs
+   64  cat Program.cs
+   65  vi Program.cs
+   66  emacs
+   67  netstat
+   68  sudo apt-get
+   69  sudo apt-file search
+   70  sudo apt-getinstall -y net-tools
+   71  sudo apt-get install -y net-tools
+   72  sudo apt-get update
+   73  sudo apt-get install -y net-tools
+   74  netstat -lnp
+   75  sudo netstat -lnp
+   76  curl
+   77  apt-get install curl
+   78  sudo apt-get install curl
+   79  version
+   80  cat /etc/os-release
+   81  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg
+   82  sudo app-get install wget
+   83  sudo apt-get install wget
+   84  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg
+   85  sudo apt-get install gpg
+   86  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg
+   87  sudo mv microsoft.asc.gpg /etc/apt/trusted.gpg.d/
+   88  wget -q https://packages.microsoft.com/config/debian/10/prod.list
+   89  sudo mv prod.list /etc/apt/sources.list.d/microsoft-prod.list
+   90  sudo chown root:root /etc/apt/trusted.gpg.d/microsoft.asc.gpg
+   91  sudo chown root:root /etc/apt/sources.list.d/microsoft-prod.list
+   92  sudo apt-get update
+   93  sudo apt-get install apt-transport-https
+   94  sudo apt-get update
+   95  sudo apt-get install dotnet-sdk-3.1
+   96  echo $(pwd)
+   97  mkdir apps
+   98  cd apps
+   99  mkdir app1
+  100  cd app1
+  101  dotnet --version
+  102  dotnet new console
+  103  dotnet run
+  104  cd ..
+  105  mkdir web1
+  106  cd web1
+  107  dotnet new mvc
+  108  dotnet run
+  109  ufw
+  110  systemctl status firewalld
+  111  dotnet run
+  112  echo $(pwd)
+  113  ls
+  114  bash
+  115  wsl.exe --update
+  116  cp --help
+  117  dotnet
+  118  pwd
+  119  git
+  120  sudo apt-get install git
+  121  apt-get update
+  122  sudo apt-get update
+  123  sudo apt-get install git
+  124  sudo apt-get update
+  125  sudo add-apt-repository ppa:git-core/ppa
+  126  sudo apt-get update -y
+  127  sudo add-apt-repository ppa:git-core/ppa
+  128  sudo apt-get install python-software-properties
+  129  sudo apt-get install software-properties-common
+  130  ls -al
+  131  ls ..
+  132  ls ../..
+  133  ls ../../root
+  134  sudo ls ../../root
+  135  cd /mnt/c/Users/DavidJones/Desktop - /mnt/c
+  136  cd /mnt/c/Users/DavidJones/Desktop
+  137  ls
+  138  cd /mnt/c/Users/david/source/repos/djaus2/TRIGGERcmdRPi2
+  139  cd ~
+  140  md TRIGGER
+  141  mkdir Trigger
+  142  ls -al
+  143  cd /mnt/c/Users/david/source/repos/djaus2/TRIGGERcmdRPi2
+  144  cp -r . ~/Trigger
+  145  ls ~/Trigger
+  146  cd ~
+  147  cd Trigger
+  148  ls -al
+  149  cd 
+  150  cd Trigger
+  151  cd WhatCanISayTRIGGERcmd
+  152  ls -al
+  153  dotnet build
+  154  wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb
+  155  sudo dpkg -i packages-microsoft-prod.deb 
+  156  sudo app-update
+  157  sudo apt update
+  158  sudo apt install dotnet-sdk-5
+  159  sudo apt install dotnet-sdk-5.0
+  160  dotnet build
+  161  dotnet run one,two,three
+  162  ls -al
+  163  cd bin
+  164  ls
+  165  ls Debug
+  166  cd Debug
+  167  cd net5
+  168  ls -la
+  169  cd ..
+  170  ls
+  171  cd WhatCanISayApp
+  172  ls -al
+  173  dotnet build WhatCanISay.sln
+  174  dotnet run one,two,three
+  175  cd ~
+  176  mkdir .TRIGGERcmdData
+  177  cd ~
+  178  cd Trigger
+  179  ls -al
+  180  cd PC
+  181  ls
+  182  cd ../RPi
+  183  ls
+  184  pwd
+  185  ls
+  186  cd home_pi
+  187  ls
+  188  cd ../../PC
+  189  ls
+  190  cd ..
+  191  ls
+  192  ls PC
+  193  ls -al
+  194  cd RPi
+  195  ls -al
+  196  cd .TRIGGERcmdData/*.* ~/.TRIGGERcmdData
+  197  cp .TRIGGERcmdData/*.* ~/.TRIGGERcmdData
+  198  cd WhatCanISayApp
+  199  ls
+  200  cd ..
+  201  ls
+  202  cd WhatCanISayApp
+  203  dotnet run
+  204  dotnet run detail
+  205  ls /tmp
+  206  cat /tmp/saythis.txt
+  207  sudo apt-get -y update
+  208  sudo apt-get -y upgrade
+  209  sudo apt-get -y install npm nodejs
+  210  wget https://s3.amazonaws.com/triggercmdagents/triggercmdagent_1.0.1_all.deb
+  211  sudo dpkg -i triggercmdagent_1.0.1_all.deb
+  212  triggercmdagent
+  213  cd ~/.TRIGGERcmdData
+  214  ls
+  215  vi commands.json
+  216  cd ..
+  217  cd WhatCanISayApp
+  218  ls
+  219  cd Trigger
+  220  ls
+  221  cd RPi
+  222  ls
+  223  cd home_pi
+  224  ls
+  225  copy *.* ~
+  226  cp *.* ~
+  227  cd ~
+  228  ls *.sh
+  229  chmod +x what*.sh
+  230  ls a-l
+  231  ls -al
+  232  vi what-voices.sh
+  233  bash what-voices.sh
+  234  vi what-voices.sh
+  235  bash what-voices.sh
+  236  vi what-voices.sh
+  237  bash what-voices.sh
+  238  ls
+  239  cd Trigger
+  240  ls
+  241  cd WhatCanISay
+  242  cd WhatCanISayApp
+  243  cd bin
+  244  ls
+  245  cd Release
+  246  ls
+  247  cd net5
+  248  cd ..
+  249  dotnet build -c RELEASE
+  250  cd ~
+  251  cd .TRIGGERcmdData
+  252  cd ~
+  253  ls
+  254  vi what-voices.sh
+  255  ls /home/pi/WhatCanISayApp/bin/Release/net5/
+  256  ls /home/pi/WhatCanISayApp
+  257  pwd
+  258  ls
+  259  ls /home/pi/Trigger/WhatCanISayApp/bin/Release/net5/
+  260  cd .TRIGGERcmdData
+  261  cd ~
+  262  ls
+  263  vi what-voices.sh
+  264  bash what-voices.sh
+  265  vi /home/pi/WhatCanISayApp/bin/Release/net5/
+  266  ls /home/pi/WhatCanISayApp/bin/Release/net5/
+  267  ls /home/pi/Trigger/WhatCanISayApp/bin/Release/net5/
+  268  vi /home/pi/WhatCanISayApp/bin/Release/net5/
+  269  ls
+  270  vi what-voices.sh
+  271  bash what-voices.sh
+  272  vi what-voices.sh
+  273  bash what-voices.sh
+  274  vi what-voices.sh
+  275  bash what-voices.sh
+  276  vi what-voices.sh
+  277  bash what-voices.sh
+  278  ls
+  279  cat what-vopices.sh
+  280  cat what-voices.sh
+  281  vi what-voices.sh
+  282  bash what-voices.sh
+  283  vi what-voices.sh
+  284  bash what-voices.sh
+  285  curl
+  286  which curl
+  287  vi what-voices.sh
+  288  bash what-voices.sh
+  289  vi what-voices.sh
+  290  clear
+  291  bash what-voices.sh
+  292  ls /tmp
+  293  cat /tmp/saythis.txt
+  294  rm /tmp/saythis.txt
+  295* 
+  296  ls
+  297  cat tr.sh
+  298  ls Trigger
+  299  ls Trigger/RPi
+  300  ls Trigger/RPi/home_pi
+  301  car Trigger/RPi/home_pi/tr.sh
+  302  cat Trigger/RPi/home_pi/tr.sh
+  303  bash tr.sh
+  304  cat /tmp/saythis.txt
+  305  ls
+  306  vi what-voices,sh
+  307  vi what-voices.sh
+  308  bash what-voices.sh
+  309  cat /tmp/saythis.txt
+  310  rm /tmp/saythis.txt
+  311  cat /tmp/saythis.txt
+  312  ls /tmp/saythis.txt
+  313  ls /tmp
+  314  vi /.TRIGGERcmdData/commands.json
+  315  bash tr.sh
+  316  ls /tmp
+  317  cat /tmp/saythis.txt
+  318  bash what-brief.sh
+  319  ls
+  320  bash what-voices.sh
+  321  ls
+  322* 
+  323  bash tr.sh
+  324  cd /mnt/c/Users/david/source/repos/djaus2/TRIGGERcmdRPi2
+  325  ls
+  326  ls -al
+  327  cp -r -y ~/Trigger
+  328  cp -r  ~/Trigger
+  329  cp -r . ~/Trigger
+  330  cp -r  -f. ~/Trigger
+  331  cp --help
+  332  cp -r  -f . ~/Trigger
+  333  ls -al
+  334  cd WhatanISayTRIGGERcmd
+  335  cd WhatCanISayTRIGGERcmd
+  336  ls
+  337  vi WhatCanISayl.cs
+  338  tr --delete '\n' <  WhatCanISayl.cs
+  339  tr --delete '\n' <  WhatCanISayl.cs >one.cs
+  340  vi one.cs
+  341  rm one.cs
+  342  vi one.cs
+  343  vi WhatCanISayl.cs
+  344  cd /mnt/c/Users/david/source/repos/djaus2/TRIGGERcmdRPi2
+  345  ls -al
+  346  cp -r -f . ~/Trigger
+  347  ls -al
+  348  cd WhatCanISayApp
+  349  ls -al
+  350  cat Program.cs
+  351  dotnet build *.sln
+  352  dotnet run a,b,c
+  353  cat /tmp/saythis.txt
+  354  dotnet run 
+  355  cat /tmp/saythis.txt
+  356  dotnet run detail
+  357  cat /tmp/saythis.txt
+  358  dotnet run a,b,c
+  359  cd /mnt/c/Users/david/source/repos/djaus2/TRIGGERcmdRPi2
+  360  cp -r -f . ~/Trigger
+  361  cd ~/Trigger
+  362  ls -al
+  363  dotnet build -c RELEASE *.sln
+  364  ls
+  365  cd WhatCanISayApp
+  366  dotnet build -c RELEASE *.sln
+  367  dotnet run one,three,four
+  368  cat /tmp/saythis.txt
+  369  dotnet run 
+  370  cat /tmp/saythis.txt
+  371  dotnet run detail
+  372  cat /tmp/saythis.txt
+  373  dotnet run remote
+  374  cat /tmp/saythis.txt
+  375  dotnet run remotedetail
+  376  cat /tmp/saythis.txt
+  377  cd WhatCanISayApp /m
+  378  cd /mnt/c/Users/david/source/repos/djaus2/TRIGGERcmdRPi2
+  379  cp -r -f . ~/Trigger
+  380  history
+  381  cd /mnt/c/Users/david/source/repos/djaus2/TRIGGERcmdRPi2
+  382  cp -r -f . ~/Trigger
+  383  cd ~/Trigger
+  384  dotnet run detail
+  385  ls
+  386  cd WhatCanISayApp
+  387  dotnet run detail
+  388  history
+  389  cd /mnt/c/Users/david/source/repos/djaus2/TRIGGERcmdRPi2
+  390  cp -r -f . ~/Trigger
+  391  cd ~/Trigger
+  392  cd WhatCanISayApp
+  393  dotnet run detail
+  394  cat /tmp/saythis.txt
+  395  dotnet run one,two,three
+  396  cat /tmp/saythis.txt
+  397  dotnet run remote
+  398  cat /tmp/saythis.txt
+  399  dotnet run remotedetail
+  400  cat /tmp/saythis.txt
+  401  dotnet run remote
+  402  cat /tmp/saythis.txt
+  403  dotnet run remotedetail
+  404  cat /tmp/saythis.txt
+  405  history
+  406  cd /mnt/c/Users/david/source/repos/djaus2/TRIGGERcmdRPi2
+  407  cp -r -f . ~/Trigger
+  408  cd ~/Trigger
+  409  dotnet run remote
+  410  cd WhatCanISayApp
+  411  dotnet run remote
+  412  cat /tmp/saythis.txt
+  413  dotnet run remotedetail
+  414  cat /tmp/saythis.txt
+  415  dotnet run Turn_On_test~_Turn_On_led~_Turn_On_temp~_Turn_On_bosh~_Turn_On_dee~_Turn_On_wire~_Turn_On_pwm~_Turn_On_single~_Turn_On_sensor~_Turn_On_local~_Turn_On_cast~_Turn_On_motor__~Or_Turn_Off_motor~_Turn_On_spin__~Or_Turn_Off_spin~_Turn_On_relay__~Or_Turn_Off_relay~_Turn_On_brief~_Turn_On_say
+  416  cd ~
+  417  bash tr.sh
+  418  cat /tmp/saythis.txt
+  419  cd Trigger
+  420  cd WahtCanISayApp
+  421  cd WhatCanISayApp
+  422  dotnet build -c Release
+  423  cd~
+  424  bash tr.sh
+  425  cd ~
+  426  bash tr.sh
+  427  cat /tmp/saythis.txt
+  428  bash tr.sh
+  429  cat /tmp/saythis.txt
+  430  cd Trigger
+  431  ls
+  432  cd WhatCanISayTRIGGERcmd
+  433  ls
+  434  vi WhatCanISayl.cs
+  435  cd ~
+  436  ls
+  437  vi what-voices.sh
+  438  bash tr.sh
+  439  vi what-voices.sh
+  440  bash tr.sh
+  441  vi what-voices.sh
+  442  bash tr.sh
+  443  history
+  444  history >myhistory.txt
