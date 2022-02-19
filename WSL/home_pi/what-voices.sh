@@ -38,6 +38,6 @@ echo $var
 echo
 
 curl -X POST https://www.triggercmd.com/api/run/triggerSave \
--H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZGE3Nzk3ZjgzMTFiMDAxYTNmNDEzZSIsImlhdCI6MTY0NTA2NzE3NX0.uGIYujCImI0i8z1ph4uYp85dRiy1Gw7tCI9BU6P5ZOY' \
+-H 'authorization: Bearer <insert token>
 -H 'content-type: application/json' \
 -d "$var"
