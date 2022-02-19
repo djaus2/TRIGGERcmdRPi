@@ -1,8 +1,8 @@
 # TRIGGERcmd Control of RPi
 
 **Done now. _Please test._**  
-**PS** WhatCanISay app builds and runs OK on WSL: Windows Subsystem for Linux (Debian)
-**Nb: _Solution file for teh app is now in the root folder._**
+**PS** WhatCanISay app builds and runs OK on WSL: Windows Subsystem for Linux (Debian)  
+**Nb: _Solution file for the app is now in the root folder._**
   
 Trigger commands in .NET app running on Raspberry Pi from Google Nest with sensor values spoken on a Google Nest (Mini) via a PC.
 
