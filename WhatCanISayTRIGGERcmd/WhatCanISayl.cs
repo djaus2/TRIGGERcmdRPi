@@ -13,25 +13,20 @@ using System.IO;
 /// Relay is when called remotely where commas need conversion to newline.
 /// - Remote device passes csv string over TRIGGERcmd
 /// - The remote device does the interogation but does not do the comma to newline conversion.
-/// Sample usage:
+/// - Use remotevoices or remotedetail on the remote device (eg RPi)
+/// - Requires PC running cast to forward message
+/// Sample usage (Console app that references this):
 ////////////////////////////////////////////////////////////////////////////////////////////
-//// static void Main(string[] args)
-//// {
-////	WhatCanISayLib.Mode mode = WhatCanISayLib.Mode.simple;
-////	string jsonCmds = WhatCanISayLib.TRIGGERcmds.GetCmdsPath(args, out mode);
-////
-////
-////	if (mode == WhatCanISayLib.Mode.relay)
-////	{
-////		string whatToSay = jsonCmds;
-////		WhatCanISayLib.Parse(mode, "", whatToSay);
-////	}
-////	else
-////	{
-////		string jsonCommandsPath = jsonCmds;
-////		WhatCanISayLib.Parse(mode, jsonCommandsPath, "");
-////	};
-//// }
+//////namespace WhatCanISay
+//////{
+//////	class Program
+//////	{
+//////		static void Main(string[] args)
+//////		{
+//////			Program_Main.Main(args);
+//////		}
+//////	}
+//////}
 /////////////////////////////////////////////////////////////////////////////////////////////
 /// </summary>
 namespace WhatCanISayTRIGGERcmd
@@ -319,6 +314,28 @@ namespace WhatCanISayTRIGGERcmd
 					retValue = commandsJsonPath;
 				};
 				return retValue;
+			}
+		}
+
+		public static class Program_Main
+		{
+
+			public static void Main(string[] args)
+			{
+				WhatCanISayLib.Mode mode = WhatCanISayLib.Mode.simple;
+				string jsonCmds = WhatCanISayLib.TRIGGERcmds.GetCmdsPath(args, out mode);
+
+
+				if (mode == WhatCanISayLib.Mode.relay)
+				{
+					string whatToSay = jsonCmds;
+					WhatCanISayLib.Parse(mode, "", whatToSay);
+				}
+				else
+				{
+					string jsonCommandsPath = jsonCmds;
+					WhatCanISayLib.Parse(mode, jsonCommandsPath, "");
+				};
 			}
 		}
 	}
