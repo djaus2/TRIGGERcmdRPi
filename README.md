@@ -135,8 +135,10 @@ It was said that you can't get the temperature etc from a RPi, from a .Net app t
  
 ## Apps
 - WhatCanISay
-  - Can ask a device,if set up there "Hey Google, start Say
+  - Can ask a device,if set up there **"Hey Google, start Say"**.
+    - Or **"Hey Google,start Detail"**.   
   - Will tell you what voice commands you can say on a device.
+    - Second option tells you exactly what to say foreach command. 
   - Works on PC (uses cast)
   - On RPi forwards through Echo on PC. 2Do
 
