@@ -1,6 +1,7 @@
 # TRIGGERcmd Control of RPi
 
-**Latest:** _There is now a Nuget Package for the library. Additional Console app uses that rather than the library source._
+**Latest:** _There is now a Nuget Package for the library. Additional Console app uses that rather than the library source._  
+```Install-Package WhatCanISayTRIGGERcmd -Version 1.0.2```  
 **PS** WhatCanISay app builds and runs OK on WSL: Windows Subsystem for Linux (Debian)  
 **Nb: _Solution file for the app is now in the root folder._**
   
