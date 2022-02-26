@@ -1,6 +1,6 @@
 # TRIGGERcmd Control of RPi
 
-**NB: 26th Fed 2022_ Please use  [https://iothub.sportronics.com.au](https://iothub.sportronics.com.au) instead of https://davidjones.sportronics for a day or so.**
+**NB: 26th Fed 2022_ Please use  [https://iothub.sportronics.com.au](https://iothub.sportronics.com.au) instead of ```https://davidjones.sportronics.com.au``` for a day or so. Thx**
 
 **Latest:** _There is now a Nuget Package for the library. Additional Console app uses that rather than the library source._  
 ```Install-Package WhatCanISayTRIGGERcmd -Version 1.0.2```  
